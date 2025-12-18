@@ -1072,6 +1072,3 @@ static gui11 := [], gui12 := [], gui13 := [], gui14 := [], gui15 := [], gui16 :=
 	} else if showTime < 0
 		SetTimer(Highlight, -Abs(showTime))
 }
-
-
-
