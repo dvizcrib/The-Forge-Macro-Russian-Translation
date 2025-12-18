@@ -63,7 +63,7 @@ readsettings(A_ScriptDir "\requiredfileformacro\SettingsForAutoMineForge.txt")
 	
 
 if !(fileexist(tesseractocrlocation)) {
-	what := msgbox("No Tesseract OCR detected, download it?`n`nor you maybe didn't input the right folder on the settings`n`nif you press No, the macro will exit`nif Yes then your going to go to the official github download link", "error", "0x40004")
+	what := msgbox("Tesseract OCR не обнаружен, скачайте его?`n`или, возможно, вы указали не ту папку в настройках`n`nЕсли вы нажмете «No», макрос завершит работу`nЕсли «Yes», то вы перейдете по официальной ссылке для скачивания на GitHub", "Ой! Ошибка!", "0x40004")
 	if (what == "Yes") {
 		run "https://github.com/UB-Mannheim/tesseract/wiki"
 	}else{
@@ -1072,3 +1072,4 @@ static gui11 := [], gui12 := [], gui13 := [], gui14 := [], gui15 := [], gui16 :=
 	} else if showTime < 0
 		SetTimer(Highlight, -Abs(showTime))
 }
+
