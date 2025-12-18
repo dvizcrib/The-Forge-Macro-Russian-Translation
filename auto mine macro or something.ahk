@@ -49,15 +49,15 @@ readsettings(A_ScriptDir "\requiredfileformacro\SettingsForAutoMineForge.txt")
 ; msgbox tesseractocrlocation "`n" selectedorekeep "`n" discordwebhook
 
 	credit2 := Gui("+E0x00080020 +alwaysontop -maximizebox +border -caption +ToolWindow")
-	credit2.backcolor := 0x000000
+	credit2.backcolor := 0xffffff
 	credit2.setfont("c0x000000 s15 q2 w800", "tahoma")
-	credit2.add("text", "y0 x22", "макро он")
+	credit2.add("text", "y0 x22", "Макрос от Lolzzn | Включен")
 	credit2.show("NA y4 h25")
 	WinSetTransColor "0xffffff 255", "ahk_id " credit2.hwnd
 	credit := Gui("+E0x00080020 +alwaysontop -maximizebox +border -caption +ToolWindow")
 	credit.backcolor := 0x000000
 	credit.setfont("cwhite s15 q2 w800", "tahoma")
-	credit.add("text", "y0", "макро он")
+	credit.add("text", "y0", "Макрос от Lolzzn | Включен")
 	credit.show("NA y5 h25")
 	WinSetTransColor "0x000000 255", "ahk_id " credit.hwnd
 	
@@ -1072,3 +1072,4 @@ static gui11 := [], gui12 := [], gui13 := [], gui14 := [], gui15 := [], gui16 :=
 	} else if showTime < 0
 		SetTimer(Highlight, -Abs(showTime))
 }
+
