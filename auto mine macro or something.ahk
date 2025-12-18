@@ -356,7 +356,7 @@ highlight(,,,, 9)
 ; ===============================|sell item mouse|===============================
 custommsgbox("поставь мышку на кнопке продать предметы",, thedirectory "MOUSESELL.png")
 themousetosell:
-GrabPositionByKey(&mousesellx, &mouseselly, "hover to sell item")
+GrabPositionByKey(&mousesellx, &mouseselly, "Наведись на Sell Item")
 
 highlight(mousesellx-5, mouseselly-5, 10, 10, 9)
 
@@ -418,9 +418,9 @@ cleartooltip()
 ; ===============================|sell item|===============================
 custommsgbox("Делайте всё по инструкций ИДЕАЛЬНО!!!!`n чтобы попасть на следующую нужную вкладку нажми на sell items",, thedirectory "SELLITEMSELECTALL.png")
 mouseselect1:
-GrabPositionByKey(&mouseselectx, &mouseselecty, "Hover to select all")
-GrabPositionByKey(&mouseacceptx, &mouseaccepty, "Hover to Accept")
-GrabPositionByKey(&mouseclosxx, &mouseclosxy, "Hover to close/x")
+GrabPositionByKey(&mouseselectx, &mouseselecty, "Наведись на Select All")
+GrabPositionByKey(&mouseacceptx, &mouseaccepty, "Наведись на Accept")
+GrabPositionByKey(&mouseclosxx, &mouseclosxy, "Наведись на закрыть/x")
 
 highlight(mouseselectx-5, mouseselecty-5, 10, 10, 9)
 highlight(mouseacceptx-5, mouseaccepty-5, 10, 10, 10, 0x0000ff)
@@ -449,11 +449,11 @@ goto selectstart
 ; ===============================|confirmation tab|===============================
 custommsgbox("Откройте вкладку подтверждения и ВСЕГДА следуйте инструкциям.`nчтобы открыть эту вкладку, нужно кликнуть на руду.",, thedirectory "QUANTITYMOUSE.png")
 quantitymouse1:
-GrabPositionByKey(&minus1x, &minus1y, "hover to -1")
-GrabPositionByKey(&minus5x, &minus5y, "hover to -5")
-GrabPositionByKey(&slctx, &slcty, "hover to select")
-GrabPositionByKey(&maxtx, &maxty, "hover to max")
-GrabPositionByKey(&closexx, &closexy, "hover to close/x")
+GrabPositionByKey(&minus1x, &minus1y, "наведись на -1")
+GrabPositionByKey(&minus5x, &minus5y, "наведись на -5")
+GrabPositionByKey(&slctx, &slcty, "наведись на select")
+GrabPositionByKey(&maxtx, &maxty, "наведись на MAX")
+GrabPositionByKey(&closexx, &closexy, "наведись на закрыть/x")
 
 highlight(minus1x-5, minus1y-5, 10, 10, 9, 0xff0000)
 highlight(minus5x-5, minus5y-5, 10, 10, 10, 0x0000ff)
@@ -484,7 +484,7 @@ goto quantitypart
 ; ===============================|yes sell confirm|===============================
 custommsgbox("Откройте подтверждение продажи, нажав «Accept», а затем наведите курсор на «YES».",, thedirectory "MOUSEYES.png")
 mouseselect2:
-GrabPositionByKey(&mouseyesx, &mouseyesy, "hover to YES")
+GrabPositionByKey(&mouseyesx, &mouseyesy, "наведись на YES")
 
 highlight(mouseyesx-5, mouseyesy-5, 10, 10, 9)
 
@@ -496,9 +496,9 @@ goto mouseselect2
 highlight(,,,, 9)
 
 ; ===============================|yes/no ocr|===============================
-custommsgbox("Put it on the YES/NO like this, the goal is to capture the text!!`nto get the message, you need to confirm sell an item",, thedirectory "YES.png")
+custommsgbox("Поставь рамку на YES/NO как на картинку, цель захватить текст!!`nчтобы получить сообщение, нужно нажать Confirm при продаже предмета",, thedirectory "YES.png")
 yesnostart:
-resizeablebar("Put this on the YES/NO",, 0xff0000, 763, 538, 1154-763, 592-538, 2.5)
+resizeablebar("Поставь рамку на YES/NO",, 0xff0000, 763, 538, 1154-763, 592-538, 2.5)
 
 message := tesseractOCR(x1, y1, x2, y2)
 yesnoocrx1 := x1, yesnoocry1 := y1, yesnoocrx2 := x2, yesnoocry2 := y2
@@ -509,9 +509,9 @@ goto yesnostart
 }
 
 ; ===============================|cash gain|===============================
-custommsgbox("Разместите это в разделе Прибыль от денежных поступлений как на картинке, цель захватить текст!!`nчтобы получить сообщение, вам нужно подтвердить продажу руды",, thedirectory "DABLOONS.png")
+custommsgbox("Разместите рамку как на картинке, цель захватить текст!!`nчтобы получить сообщение, вам нужно подтвердить продажу руды",, thedirectory "DABLOONS.png")
 cashgainstart:
-resizeablebar("Put this on the cash gain",, 0xff0000, 819, 488, 1086-819, 523-488, 2.5)
+resizeablebar("Поставь рамку на кол-во денег за продажу",, 0xff0000, 819, 488, 1086-819, 523-488, 2.5)
 
 message := tesseractOCR(x1, y1, x2, y2, "--psm 7 --oem 1 -l eng --dpi 300", 0xFFE5A4, 100)
 cashgainocrx1 := x1, cashgainocry1 := y1, cashgainocrx2 := x2, cashgainocry2 := y2
@@ -591,7 +591,7 @@ fileappend
 "`ncashgainocry2 = " cashgainocry2
 ), A_ScriptDir "\requiredfileformacro\coordsave.txt"
 readsettings(A_ScriptDir "\requiredfileformacro\coordsave.txt")
-msgbox "Сетап готов!`nНастройки сохранены! `"" A_ScriptDir "\requiredfileformacro\coordsave.txt`"`n`nГайд:`nf1 = выйти`nf2 = перезагрузка`nf3 = начать настройку (можно нажать f2 чтобы отказаться)`nf12 = этот гайд`n[ = начать макрос (чтобы отменить - f2)`n] = хайлайт`n\ = проверить продажу предметов","info","0x40000"
+msgbox "Сетап готов!`nНастройки сохранены! `"" A_ScriptDir "\requiredfileformacro\coordsave.txt`"`n`nГайд:`nf1 = выход из макроса`nf2 = перезагрузка макроса`nf3 = начать настройку макроса (можно отменить перезагрузкой макроса - f2)`nf12 = этот гайд`n[ = начать макрос (отменить можно перезагрузкой - f2)`n] = хайлайт`n\ = проверить работу продажи макросом","информация","0x40000"
 }
 
 GrabPositionByKey(&x, &y, messages := "", keystowait := "r") {
@@ -1072,5 +1072,6 @@ static gui11 := [], gui12 := [], gui13 := [], gui14 := [], gui15 := [], gui16 :=
 	} else if showTime < 0
 		SetTimer(Highlight, -Abs(showTime))
 }
+
 
 
