@@ -256,7 +256,7 @@ range := 50
 }
 
 f12::{
-msgbox "f1 = exit`nf2 = reload`nf3 = retake settings (can be cancelled by reloading)`nf12 = help/info`n[ = start macro (cancel by reloading)`n] = toggle highlight`n\ = test the function","help/info","0x40000"
+msgbox "f1 = выход из макроса`nf2 = перезагрузка макроса`nf3 = начать настройку макроса (можно отменить перезагрузкой макроса - f2)`nf12 = этот гайд`n[ = начать макрос (отменить можно перезагрузкой - f2)`n] = хайлайт`n\ = проверить работу продажи макросом","кнопки/гайд","0x40000"
 }
 
 f3::{
@@ -1072,4 +1072,5 @@ static gui11 := [], gui12 := [], gui13 := [], gui14 := [], gui15 := [], gui16 :=
 	} else if showTime < 0
 		SetTimer(Highlight, -Abs(showTime))
 }
+
 
