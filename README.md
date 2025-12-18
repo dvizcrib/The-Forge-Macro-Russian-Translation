@@ -1,6 +1,7 @@
-this is a forge autosell macro especially made for the tunnel to entering the volcanic rock area, (made to mine the basalt veins)
+WIP - Work in Progress!
+ПОКА НЕ ДОДЕЛАН!
 
-# dont take ownership of this macro
-# always give credit when making video about this
+# Сделан lolzzn, макрос не выдавать за свой.
+# Всегда указывайте создателя макроса если делайте по нему видео.
 
-# dont download from other sites (might be a virus, this is the official download link)
+# Не скачивайте макрос с других сайтов, там может быть вирус (ЭТО НЕ ОФИЦИАЛЬНЫЙ ФОРК! [ВОТ ОФИЦИАЛЬНЫЙ КОД/МАКРОС](https://github.com/lolzzn/The-Forge-Macro))
