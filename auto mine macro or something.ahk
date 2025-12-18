@@ -1,4 +1,4 @@
-﻿#Requires AutoHotkey v2
+#Requires AutoHotkey v2
 #warn all, off
 #singleinstance force
 #include %A_scriptdir%\libraries\Gdip_All.ahk
@@ -49,15 +49,15 @@ readsettings(A_ScriptDir "\requiredfileformacro\SettingsForAutoMineForge.txt")
 ; msgbox tesseractocrlocation "`n" selectedorekeep "`n" discordwebhook
 
 	credit2 := Gui("+E0x00080020 +alwaysontop -maximizebox +border -caption +ToolWindow")
-	credit2.backcolor := 0xffffff
+	credit2.backcolor := 0x000000
 	credit2.setfont("c0x000000 s15 q2 w800", "tahoma")
-	credit2.add("text", "y0 x22", "Macro by Lolzzn")
+	credit2.add("text", "y0 x22", "макро он")
 	credit2.show("NA y4 h25")
 	WinSetTransColor "0xffffff 255", "ahk_id " credit2.hwnd
 	credit := Gui("+E0x00080020 +alwaysontop -maximizebox +border -caption +ToolWindow")
 	credit.backcolor := 0x000000
 	credit.setfont("cwhite s15 q2 w800", "tahoma")
-	credit.add("text", "y0", "Macro by Lolzzn")
+	credit.add("text", "y0", "макро он")
 	credit.show("NA y5 h25")
 	WinSetTransColor "0x000000 255", "ahk_id " credit.hwnd
 	
@@ -172,7 +172,8 @@ highlight(totalcashx1, totalcashy1, totalcashx2-totalcashx1, totalcashy2-totalca
 highlight(totallvlx1, totallvly1, totallvlx2-totallvlx1, totallvly2-totallvly1, 8, 0xffffff) ; total level v
 highlight(sellitemocrx1, sellitemocry1, sellitemocrx2-sellitemocrx1, sellitemocry2-sellitemocry1, 9, 0x00ff00)
 highlight(personalstashareax1, personalstashareay1, personalstashareax2-personalstashareax1, personalstashareay2-personalstashareay1, 10, 0x8f5d31)
-ttp "xp progress", xpprogressx, xpprogressy, 1
+
+ttp "xp progress", xpprogressx, xpprogressy, 1
 ttp "stash", mousestashx, mousestashy, 2
 ttp "sell", mousesellx, mouseselly, 3
 ttp "select", mouseselectx, mouseselecty, 4
@@ -267,53 +268,53 @@ global
 thedirectory := A_scriptdir "\IMAGEFORTUTORIAL\"
 
 ; ===============================|red error text|===============================
-custommsgbox("Put it on the red error or something, the goal is to capture the text!!`nto get the right one, go mine an ore til your inventory is full`nor mine the ore somebody else is mining",, thedirectory "REDTEXTTHINGFORSTASHNSHI.png")
+custommsgbox("Разместите это на красной еррорке или где нибудь еще, цель - захватить текст!!`nчтобы найти нужный, добывайте руду, пока ваш инвентарь не заполнится.`nили можете добывать руду, которую добывает кто то другой.",, thedirectory "REDTEXTTHINGFORSTASHNSHI.png")
 theredtextthing:
-resizeablebar("Put this on the red error text or something",, 0xff0000, 610, 863, 1393-610, 926-863, 2.5)
+resizeablebar("разместите это в красном тексте ошибки или где нибудь ещё",, 0xff0000, 610, 863, 1393-610, 926-863, 2.5)
 
 highlight(x1, y1, x2-x1, y2-y1, 9)
 theredtextx1 := x1, theredtexty1 := y1, theredtextx2 := x2, theredtexty2 := y2
 
-custommsgbox("Is the box covering the red text?`nif it doesnt you can retake",,, 1, 1)
+custommsgbox("Рамка закрывает красный текст?`nесли нет, вы можете переделать.",,, 1, 1)
 if (cmsgbox == 0) {
 highlight(,,,,9)
 goto theredtextthing
 }
 highlight(,,,,9)
 ; ===============================|total cash|===============================
-custommsgbox("Put it on the cash like this, the goal is to capture the text!!",, thedirectory "TOTALCASH.png")
+custommsgbox("Разместите это на кол-во денег вот так, цель - зафиксировать текст!",, thedirectory "TOTALCASH.png")
 cashrestart:
-resizeablebar("Put this on the total cash",, 0xff0000, 11, 974, (345-11), (1020-974), 2.5)
+resizeablebar("добавьте это к общей сумме денег",, 0xff0000, 11, 974, (345-11), (1020-974), 2.5)
 
 message := tesseractOCR(x1, y1, x2, y2, "--psm 7 --oem 1 -l eng --dpi 300", 0xFFE5A4, 10)
 totalcashx1 := x1, totalcashy1 := y1, totalcashx2 := x2, totalcashy2 := y2
 
-custommsgbox("Is it displaying the right text?? if yes, continue, if not reload the macro`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
+custommsgbox("Отображается ли правильный текст? если да, продолжайте, если нет, перезагрузите макрос(F2)`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
 if (cmsgbox == 0) {
 goto cashrestart
 }
 
 ; ===============================|total level|===============================
-custommsgbox("Put it on the levels like this, the goal is to capture the text!!",, thedirectory "LEVEL.png")
+custommsgbox("Поставьте рамку на ваш левел как на картинке, цель захватить текст!",, thedirectory "LEVEL.png")
 levelrestart:
-resizeablebar("Put this on the levels",, 0xff0000, 15, 943, (171-7), (975-943), 2.5)
+resizeablebar("поставь рамку на уровни",, 0xff0000, 15, 943, (171-7), (975-943), 2.5)
 
 message := tesseractOCR(x1, y1, x2, y2, "--psm 7 --oem 1 -l eng --dpi 300", 0xFFFFFF, 10)
 totallvlx1 := x1, totallvly1 := y1, totallvlx2 := x2, totallvly2 := y2
 
-custommsgbox("Is it displaying the right text?? if yes, continue, if not reload the macro`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
+custommsgbox("Программа показыает правильный текст?? если да, продолжайте, если нет, перезагрузите макрос(F2)`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
 if (cmsgbox == 0) {
 goto levelrestart
 }
 
 ; ===============================|xp progress mouse tab|===============================
-custommsgbox("Hover your mouse to the bottom middle of your screen and follow the next instruction",, thedirectory "XPMOUSEPROGRESS.png")
+custommsgbox("Наведите курсор мыши на нижнюю центральную часть экрана и следуйте дальнейшим инструкциям",, thedirectory "XPMOUSEPROGRESS.png")
 bleehhh:
 GrabPositionByKey(&xpprogressx, &xpprogressy, "XP Progress")
 
 highlight(xpprogressx-5, xpprogressy-5, 10, 10, 9)
 
-custommsgbox("is it highlighting your mouse to the right place?",,, 1, 1)
+custommsgbox("рамка на месте курсора мыши отображается в нужном месте?",,, 1, 1)
 if (cmsgbox == 0) {
 highlight(,,,, 9)
 goto bleehhh
@@ -321,9 +322,9 @@ goto bleehhh
 highlight(,,,, 9)
 
 ; ===============================|xp progress ocr|===============================
-custommsgbox("Put it on the XP message like this, the goal is to capture the text!!`nto get the message, you need to hover to your XP bar",, thedirectory "XPBAR.png")
+custommsgbox("поставь рамку на текст прогресса левела, цель захватить рамкой текст!`n чтобы получить текст как на фотке, надо навестить на XP бар",, thedirectory "XPBAR.png")
 xprestart:
-resizeablebar("Put this on the XP MESSAGE",, 0xff0000, 748, 995, 1168-748, 1030-995, 2.5)
+resizeablebar("поставь рамку на текст XP, пример был на прошлой картине",, 0xff0000, 748, 995, 1168-748, 1030-995, 2.5)
 
 loop 6 {
 mousemove xpprogressx, xpprogressy
@@ -333,19 +334,19 @@ sleep 50
 message := tesseractOCR(x1, y1, x2, y2, "--psm 7 --oem 1 -l eng --dpi 300", 0xFFFFFF, 30)
 xpbarforocrx1 := x1, xpbarforocry1 := y1, xpbarforocrx2 := x2, xpbarforocry2 := y2
 
-custommsgbox("Is it displaying the right text?? if yes, continue, if not reload the macro`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
+custommsgbox("Программа показыает правильный текст?? если да, продолжайте, если нет, перезагрузите макрос(F2)`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
 if (cmsgbox == 0) {
 goto xprestart
 }
 
 ; ===============================|mouse to stash tab|===============================
-custommsgbox("Open your inventory and hover to stash",, thedirectory "MOUSESTASH.png")
+custommsgbox("открой инвентарь и вкладку stash",, thedirectory "MOUSESTASH.png")
 themousetosatch:
 GrabPositionByKey(&mousestashx, &mousestashy, "Hover to stash")
 
 highlight(mousestashx-5, mousestashy-5, 10, 10, 9)
 
-custommsgbox("is it highlighting your mouse to the right place?",,, 1, 1)
+custommsgbox("рамка на месте курсора мыши отображается в нужном месте?",,, 1, 1)
 if (cmsgbox == 0) {
 highlight(,,,, 9)
 goto themousetosatch
@@ -353,13 +354,13 @@ goto themousetosatch
 highlight(,,,, 9)
 
 ; ===============================|sell item mouse|===============================
-custommsgbox("Hover to sell item now",, thedirectory "MOUSESELL.png")
+custommsgbox("поставь мышку на кнопке продать предметы",, thedirectory "MOUSESELL.png")
 themousetosell:
 GrabPositionByKey(&mousesellx, &mouseselly, "hover to sell item")
 
 highlight(mousesellx-5, mouseselly-5, 10, 10, 9)
 
-custommsgbox("is it highlighting your mouse to the right place?",,, 1, 1)
+custommsgbox("рамка на месте курсора мыши отображается в нужном месте?",,, 1, 1)
 if (cmsgbox == 0) {
 goto themousetosell
 highlight(,,,, 9)
@@ -367,24 +368,24 @@ highlight(,,,, 9)
 highlight(,,,, 9)
 
 ; ===============================|sell item ocr|===============================
-custommsgbox("Put it on the sell item like this, the goal is to capture the text!!",, thedirectory "SELLITEM.png")
+custommsgbox("поставь рамку на месте sell item, цель захватить текст!",, thedirectory "SELLITEM.png")
 sellrestart:
-resizeablebar("Put this on the Sell Items",, 0xff0000, 1242, 330, (1419-1242), (364-330), 2.5)
+resizeablebar("поставь рамку на месте sell item",, 0xff0000, 1242, 330, (1419-1242), (364-330), 2.5)
 
 
 message := tesseractOCR(x1, y1, x2, y2)
 sellitemocrx1 := x1, sellitemocry1 := y1, sellitemocrx2 := x2, sellitemocry2 := y2
 
-custommsgbox("Is it displaying the right text?? if yes, continue, if not reload the macro`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
+custommsgbox("Программа показыает правильный текст?? если да, продолжайте, если нет, перезагрузите макрос(F2)`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
 if (cmsgbox == 0) {
 goto sellrestart
 }
 
 ; ===============================|personal stash|===============================
-custommsgbox("Put it on the personal stash like this, the goal is to capture the whole area!!",, thedirectory "PERSONALSTASH.png")
+custommsgbox("поставь рамку на весь персональный стэш, цель поймать весь персональный стэш как на картинке!!",, thedirectory "PERSONALSTASH.png")
 sellstasharea1:
 cleartooltip()
-resizeablebar("Put this on the personal stash area",, 0xff0000, 538, 279, 952-538, 679-279, 2.5)
+resizeablebar("поставь рамку на весь персональный стэш",, 0xff0000, 538, 279, 952-538, 679-279, 2.5)
 
 colormap := map()
 colormap["uranium"] := [0x425F4B, 0x7DFF4C, 0x3D5746]
@@ -415,7 +416,7 @@ goto sellstasharea1
 cleartooltip()
 
 ; ===============================|sell item|===============================
-custommsgbox("Follow the instruction PERFECTLY!!!!!!!`nto get to this tab you need to press sell item",, thedirectory "SELLITEMSELECTALL.png")
+custommsgbox("Делайте всё по инструкций ИДЕАЛЬНО!!!!`n чтобы попасть на следующую нужную вкладку нажми на sell items",, thedirectory "SELLITEMSELECTALL.png")
 mouseselect1:
 GrabPositionByKey(&mouseselectx, &mouseselecty, "Hover to select all")
 GrabPositionByKey(&mouseacceptx, &mouseaccepty, "Hover to Accept")
@@ -425,7 +426,7 @@ highlight(mouseselectx-5, mouseselecty-5, 10, 10, 9)
 highlight(mouseacceptx-5, mouseaccepty-5, 10, 10, 10, 0x0000ff)
 highlight(mouseclosxx-5, mouseclosxy-5, 10, 10, 11, 0x00ff00)
 
-custommsgbox("is it highlighting your mouse to the right place?",,, 1, 1)
+custommsgbox("рамка на месте курсора мыши отображается в нужном месте?",,, 1, 1)
 if (cmsgbox == 0) {
 highlight(,,,, 9) highlight(,,,, 10) highlight(,,,, 11)
 goto mouseselect1
@@ -433,20 +434,20 @@ goto mouseselect1
 highlight(,,,, 9) highlight(,,,, 10) highlight(,,,, 11)
 
 ; ===============================|select/unselect ocr|===============================
-custommsgbox("Put it on the Select/Unselect All like this, the goal is to capture the text!!`nto get the message, you need to click sell items",, thedirectory "SELECTALL.png")
+custommsgbox("поставь рамку на select/unselect, цель захватить текст как на картинке!!!`nчтобы получить сообщение, кликни на Sell Items",, thedirectory "SELECTALL.png")
 selectstart:
-resizeablebar("Put this on the Select/Unselect All",, 0xff0000, 846, 643, 1074-846, 689-643, 2.5)
+resizeablebar("поставь рамку на select/unselect",, 0xff0000, 846, 643, 1074-846, 689-643, 2.5)
 
 message := tesseractOCR(x1, y1, x2, y2)
 theselectforocrx1 := x1, theselectforocry1 := y1, theselectforocrx2 := x2, theselectforocry2 := y2
 
-custommsgbox("Is it displaying the right text?? if yes, continue, if not reload the macro`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
+custommsgbox("Программа показыает правильный текст?? если да, продолжайте, если нет, перезагрузите макрос(F2)`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
 if (cmsgbox == 0) {
 goto selectstart
 }
 
 ; ===============================|confirmation tab|===============================
-custommsgbox("Open the confirmation tab and follow the next instruction PERFECTLY`nto open this tab you need to click on an ore",, thedirectory "QUANTITYMOUSE.png")
+custommsgbox("Откройте вкладку подтверждения и ВСЕГДА следуйте инструкциям.`nчтобы открыть эту вкладку, нужно кликнуть на руду.",, thedirectory "QUANTITYMOUSE.png")
 quantitymouse1:
 GrabPositionByKey(&minus1x, &minus1y, "hover to -1")
 GrabPositionByKey(&minus5x, &minus5y, "hover to -5")
@@ -460,7 +461,7 @@ highlight(slctx-5, slcty-5, 10, 10, 11, 0x00ff00)
 highlight(maxtx-5, maxty-5, 10, 10, 12, 0xff00ff)
 highlight(closexx-5, closexy-5, 10, 10, 13, 0xffff00)
 
-custommsgbox("is it highlighting your mouse to the right place?`nred = -1`nblue = -5`ngreen = select`npink = max`nyellow = close/x",,, 1, 1)
+custommsgbox("рамка на месте курсора мыши отображается в нужном месте?`nred = -1`nblue = -5`ngreen = select`npink = max`nyellow = close/x",,, 1, 1)
 if (cmsgbox == 0) {
 highlight(,,,, 9) highlight(,,,, 10) highlight(,,,, 11) highlight(,,,, 12) highlight(,,,, 13)
 goto quantitymouse1
@@ -468,26 +469,26 @@ goto quantitymouse1
 highlight(,,,, 9) highlight(,,,, 10) highlight(,,,, 11) highlight(,,,, 12) highlight(,,,, 13)
 
 ; ===============================|quantity|===============================
-custommsgbox("Put it on the number like this, the goal is to capture the text!!`nto get the message, you need to go to the confirmation messages after pressing an ore",, thedirectory "QUANTITY.png")
+custommsgbox("Разместите это на кол-ве как на картинке, цель захватить текст!!`nчтобы получить сообщение, после нажатия на руду необходимо перейти к сообщению с подтверждением.",, thedirectory "QUANTITY.png")
 quantitypart:
-resizeablebar("Put this on the number",, 0xff0000, 921, 479, 1001-921, 525-479, 2.5)
+resizeablebar("поставь это на число количества",, 0xff0000, 921, 479, 1001-921, 525-479, 2.5)
 
 message := tesseractOCR(x1, y1, x2, y2, "--psm 7 --oem 1 -l eng --dpi 300", 0xC7BFAE, 60)
 quantityocrx1 := x1, quantityocry1 := y1, quantityocrx2 := x2, quantityocry2 := y2
 
-custommsgbox("Is it displaying the right text?? if yes, continue, if not reload the macro might not work on certain number (11, 17, 35)`ndont worry though, the code account for that so just keep going`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
+custommsgbox("Программа показыает правильный текст?? если да, продолжайте, если нет, перезагрузите макрос(F2) может не работать с некоторыми числами (11, 17, 35)`nно не волнуйтесь, код это учитывает, так что просто продолжайте.`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
 if (cmsgbox == 0) {
 goto quantitypart
 }
 
 ; ===============================|yes sell confirm|===============================
-custommsgbox("Open the sell confirmation by pressing Accept then hover to YES",, thedirectory "MOUSEYES.png")
+custommsgbox("Откройте подтверждение продажи, нажав «Accept», а затем наведите курсор на «YES».",, thedirectory "MOUSEYES.png")
 mouseselect2:
 GrabPositionByKey(&mouseyesx, &mouseyesy, "hover to YES")
 
 highlight(mouseyesx-5, mouseyesy-5, 10, 10, 9)
 
-custommsgbox("is it highlighting your mouse to the right place?",,, 1, 1)
+custommsgbox("рамка на месте курсора мыши отображается в нужном месте?",,, 1, 1)
 if (cmsgbox == 0) {
 highlight(,,,, 9)
 goto mouseselect2
@@ -502,20 +503,20 @@ resizeablebar("Put this on the YES/NO",, 0xff0000, 763, 538, 1154-763, 592-538, 
 message := tesseractOCR(x1, y1, x2, y2)
 yesnoocrx1 := x1, yesnoocry1 := y1, yesnoocrx2 := x2, yesnoocry2 := y2
 
-custommsgbox("Is it displaying the right text?? if yes, continue, if not reload the macro`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
+custommsgbox("Программа показыает правильный текст?? если да, продолжайте, если нет, перезагрузите макрос(F2)`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
 if (cmsgbox == 0) {
 goto yesnostart
 }
 
 ; ===============================|cash gain|===============================
-custommsgbox("Put it on the cash gain like this, the goal is to capture the text!!`nto get the message, you need to confirm sell an item",, thedirectory "DABLOONS.png")
+custommsgbox("Разместите это в разделе Прибыль от денежных поступлений как на картинке, цель захватить текст!!`nчтобы получить сообщение, вам нужно подтвердить продажу руды",, thedirectory "DABLOONS.png")
 cashgainstart:
 resizeablebar("Put this on the cash gain",, 0xff0000, 819, 488, 1086-819, 523-488, 2.5)
 
 message := tesseractOCR(x1, y1, x2, y2, "--psm 7 --oem 1 -l eng --dpi 300", 0xFFE5A4, 100)
 cashgainocrx1 := x1, cashgainocry1 := y1, cashgainocrx2 := x2, cashgainocry2 := y2
 
-custommsgbox("Is it displaying the right text?? if yes, continue, if not reload the macro`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
+custommsgbox("Программа показыает правильный текст?? если да, продолжайте, если нет, перезагрузите макрос(F2)`nText: " message,, A_Scriptdir "\requiredfileformacro\balls.png", 1, 1)
 if (cmsgbox == 0) {
 goto cashgainstart
 }
@@ -590,7 +591,7 @@ fileappend
 "`ncashgainocry2 = " cashgainocry2
 ), A_ScriptDir "\requiredfileformacro\coordsave.txt"
 readsettings(A_ScriptDir "\requiredfileformacro\coordsave.txt")
-msgbox "Setup is done!`nSettings is saved at `"" A_ScriptDir "\requiredfileformacro\coordsave.txt`"`n`nSmall Guide:`nf1 = exit`nf2 = reload`nf3 = retake settings (can be cancelled by reloading)`nf12 = help/info`n[ = start macro (cancel by reloading)`n] = toggle highlight`n\ = test the function","info","0x40000"
+msgbox "Сетап готов!`nНастройки сохранены! `"" A_ScriptDir "\requiredfileformacro\coordsave.txt`"`n`nГайд:`nf1 = выйти`nf2 = перезагрузка`nf3 = начать настройку (можно нажать f2 чтобы отказаться)`nf12 = этот гайд`n[ = начать макрос (чтобы отменить - f2)`n] = хайлайт`n\ = проверить продажу предметов","info","0x40000"
 }
 
 GrabPositionByKey(&x, &y, messages := "", keystowait := "r") {
@@ -633,14 +634,14 @@ w2 := w+25
 }
 msgboxGUI.Add("Text", "Backgroundffffff y-8 x-8 w" 10000 " h" h-20)
 if (options == 0) {
-theok := msgboxGUI.add("Button", "h22 w" w " x" 5 " y" h-20, "CONTINUE")
+theok := msgboxGUI.add("Button", "h22 w" w " x" 5 " y" h-20, "ПРОДОЛЖИТЬ")
 }else if (options == 1) {
 if (w <= 247) {
-theok := msgboxGUI.add("Button", "h22 w" w3/2.05 " x" 5+w3/2.05+5 " y" h-20, "CONTINUE")
-therestart := msgboxGUI.add("Button", "h22 w" w3/2.05 " x" 5 " y" h-20, "RESTART")
+theok := msgboxGUI.add("Button", "h22 w" w3/2.05 " x" 5+w3/2.05+5 " y" h-20, "ПРОДОЛЖИТЬ")
+therestart := msgboxGUI.add("Button", "h22 w" w3/2.05 " x" 5 " y" h-20, "РЕСТАРТ")
 }else{
-theok := msgboxGUI.add("Button", "h22 w" w/2.05 " x" 10+w/2.05+5 " y" h-20, "CONTINUE")
-therestart := msgboxGUI.add("Button", "h22 w" w/2.05 " x" 5 " y" h-20, "RESTART")
+theok := msgboxGUI.add("Button", "h22 w" w/2.05 " x" 10+w/2.05+5 " y" h-20, "ПРОДОЛЖИТЬ")
+therestart := msgboxGUI.add("Button", "h22 w" w/2.05 " x" 5 " y" h-20, "РЕСТАРТ")
 }
 therestart.onevent("click", (*) => msgboxGUI.destroy() cmsgbox := 0)
 }
@@ -828,7 +829,7 @@ ttp "Sold For: " formattedmoney, 1, 1, 1
 totalSeconds := Floor((A_TickCount-PreviousMS) / 1000), ms := mod(A_TickCount-PreviousMS, 1000), seconds := Mod(totalSeconds, 60), minutes := Mod(Floor(totalSeconds / 60), 60), hours   := Floor(totalSeconds / 3600)
 formatted2 := Format("{:02}:{:02}:{:02}.{}", hours, minutes, seconds, ms)
 if (instr(discordwebhook, "https://discord.com/api/webhooks/")) {
-	try SendDiscordWebhook(discordwebhook, "Sold all your item for **$" formattedmoney "!**\nCurrent Level: **" CurrentLevel " | " furtherexp " (" exppercentage "%)**\nTotal Cash: **$" TotalCash "**\n-# Run Time: " ConvertTickToDate() " (" formatted2 " from previous messages)\n-# Launch Time: " launchedat)
+	try SendDiscordWebhook(discordwebhook, "всё депнул за **$" formattedmoney "!**\nебейщий уровень: **" CurrentLevel " | " furtherexp " (" exppercentage "%)**\nтотальный кэш: **$" TotalCash "**\n-# бежал: " ConvertTickToDate() " (" formatted2 " из прошлых сообщений)\n-# запустился: " launchedat)
 }
 }
 
